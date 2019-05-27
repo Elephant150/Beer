@@ -94,10 +94,12 @@ ul {
 }
 
 .close_btn {
-    margin-right: -21px;
-    margin-top: -26px;
+    margin-right: -13px;
+    margin-top: -18px;
 }
 
+
+/* 
 .form_control {
     width: 200px;
     height: 40px;
@@ -108,4 +110,7 @@ ul {
     margin-left: 20px;
     margin-top: 10px;
     padding-bottom: 10px;
-}
+} */
+
+
+/* ------------------------ */

@@ -1,4 +1,4 @@
-// var url = "https://api.punkapi.com/v2/beers";
+var url = "https://api.punkapi.com/v2/beers";
 
 
 $.getJSON(url, function(data) {
@@ -58,7 +58,7 @@ $.getJSON(url, function(data) {
             }   
 
 // print to page beers
-    printToPage(allBeers, "all");
+    // printToPage(allBeers, "all");
     printToPage(weakAbvBeer, "weakAbv");
     printToPage(mediumAbvBeer, "mediumAbv");
     printToPage(strongAbvBeer, "strongAbv");

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css.css">
     <title>Punk</title>
 </head>
 
@@ -15,17 +16,16 @@
     <div class="sidebar">
         <h1>Punk</h1>
         <a href="about.html">About</a>
-        <!-- <div> -->
+
         <form id="search-form" class="mx-auto form-inline">
-            <div class="form-group ">
-                <input type="text" id="search-input" class=" form_control mr-3" placeholder="search...">
-                <!-- </div> -->
-                <button type="submit" class="btn btn-outline-dark mr-3">Go!</button>
+            <div class="form-group">
+                <input type="text" id="search-input" class="form-control mr-3" placeholder="search...">
+            </div>
+            <button type="submit" class="btn btn-outline-dark mr-3">Go!</button>
         </form>
-        </div>
         <div>
             <ul>
-                <li class="tab_item all active">
+                <li class="tab_item all ">
                     <h3>all</h3>
                 </li>
                 <h1>ABV</h1>
@@ -52,19 +52,28 @@
         </div>
 
     </div>
+    <div class="container">
+        <div class="row">
+            <h1>S Beer</h1>
+            <div id="results"></div>
+        </div>
+    </div>
     <div class='container'>
         <div class="row">
             <div class='beers_grid '>
+
 
             </div>
         </div>
     </div>
     <div class='bg'></div>
+
     </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="search.js"></script>
 </body>
 
 </html>
