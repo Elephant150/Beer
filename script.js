@@ -58,7 +58,7 @@ $.getJSON(url, function(data) {
             }   
 
 // print to page beers
-    // printToPage(allBeers, "all");
+    printToPage(allBeers, "all");
     printToPage(weakAbvBeer, "weakAbv");
     printToPage(mediumAbvBeer, "mediumAbv");
     printToPage(strongAbvBeer, "strongAbv");

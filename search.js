@@ -23,8 +23,8 @@ class BeerSearch {
     constructor() {
         this.BeerAPI = new BeerAPI()
         this.elements = {
-            'form': $('#search-form'),
-            'input': $('#search-input'),
+            'form': $('#search_form'),
+            'input': $('#search_input'),
             'results': $('#results')
         }
 
@@ -54,10 +54,10 @@ class BeerSearch {
             $('#error').remove()
             data.forEach((beer) => {
                 this.elements.results.append(`
-            <div class=" card border-light mb-3">
-               <div class="card-body">
+            <div class=" card mb-2">
+               <div class="card_body">
                <img class ="beer_img" src = "${beer.image_url}">
-               <h4 class="card-title">${beer.name}</h4>
+               <h3 class="card_title">${beer.name}</h3>
               </div>
            </div>
          `)
@@ -76,15 +76,6 @@ class BeerSearch {
         alert.text(message)
     }
 }
-// $(".tab_item.bitterIbu").on("click", function() {
-//     $(".beers_grid .bitterIbu").show();
-//     $(".beers_grid .all").hide();
-//     $(".beers_grid .weakAbv").hide();
-//     $(".beers_grid .mediumAbv").hide();
-//     $(".beers_grid .strongAbv").hide();
-//     $(".beers_grid .weakIbu").hide();
-//     $(".beers_grid .mediumIbu").hide();
-// });
 
 
 const beerForm = new BeerSearch();
