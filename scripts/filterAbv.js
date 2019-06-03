@@ -1,15 +1,15 @@
-class BeerAPI {
+class BeerApiForAbv {
     constructor() {
-        this.url = 'https://api.punkapi.com/v2/beers'
+        this.urlForAbv = 'https://api.punkapi.com/v2/beers?per_page=80'
     }
 
-    searchByName(name, callback) {
-        const urlApi = this.url
+    searchByAbv(abv, callback) {
+        const url = this.urlForAbv
         const params = {
-            'beer_name': name
+            'abv_lt': abv
         }
 
-        $.getJSON(urlApi, params)
+        $.getJSON(url, params)
             .done((data) => {
                 callback(data)
             })
@@ -19,13 +19,13 @@ class BeerAPI {
     }
 }
 
-class BeerSearch {
+class BeerAbvSearch {
     constructor() {
-        this.BeerAPI = new BeerAPI()
+        this.BeerApiForAbv = new BeerApiForAbv()
         this.elements = {
-            'form': $('#search_form'),
-            'input': $('#search_input'),
-            'results': $('#results')
+            'form': $('#searchAbv-form'),
+            'input': $('#searchAbv-input'),
+            'resultsAbv': $('#resultsAbv')
         }
 
         this.registerEvents()
@@ -36,7 +36,7 @@ class BeerSearch {
             e.preventDefault()
             const userInput = this.elements.input.val().trim()
 
-            this.BeerAPI.searchByName(
+            this.BeerApiForAbv.searchByAbv(
                 userInput, (data) => {
                     this.showResults(data)
                     console.log(data)
@@ -46,21 +46,22 @@ class BeerSearch {
     }
 
     showResults(data) {
-        this.elements.results.html('')
+        this.elements.resultsAbv.html('')
 
         if (data.length === 0) {
             this.showError('This beer was found in the database')
         } else {
             $('#error').remove()
             data.forEach((beer) => {
-                this.elements.results.append(`
-            <div class=" card mb-2">
-               <div class="card_body">
-               <img class ="beer_img" src = "${beer.image_url}">
-               <h3 class="card_title">${beer.name}</h3>
-              </div>
-           </div>
-         `)
+                this.elements.resultsAbv.append(`
+             <div class=" centerBlockBeer">
+                <div class="beer_bg">
+                <img class ="beer_img" src = "${beer.image_url}">
+                  <h4 class="block_title">${beer.name}</h4>
+                  <h4 class="beer_abv">${beer.abv}</h4>
+               </div>
+            </div>
+          `)
             })
         }
     }
@@ -77,5 +78,4 @@ class BeerSearch {
     }
 }
 
-
-const beerForm = new BeerSearch();
+const beerAbvForm = new BeerAbvSearch();

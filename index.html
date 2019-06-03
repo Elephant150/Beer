@@ -6,75 +6,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Punk</title>
 </head>
 
 <body>
-    <div class="sidebar">
-        <h1>Punk</h1>
-        <a href="about.html">About</a>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="img/logo.png" class="logo d-inline-block " alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <form id="search_form" class="mx-auto form-inline">
-            <div class="form-group">
-                <input type="text" id="search-input" class="form_control mr-3" placeholder="search...">
-            </div>
-            <button type="submit" class="btn btn-outline-dark mr-3">Search</button>
-            <!-- <a href="index.html"> <input type="submit" class="btn btn-outline-dark mr-3" value="Clear">Clear</a> -->
-        </form>
-        <div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <h3> Punk </h3>
+                    </a>
+                </li>
+
+            </ul>
+            <form id="search-form" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search beers " aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href = 'index.html'">Clear</button>
+            </form>
+        </div>
+    </nav>
+    <!-- filter -->
+    <nav class="navbar filter_bg navbar-expand-sm justify-content-center">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div id="content-container">
+                    <form id="searchIbu-form" class="mx-auto form-inline">
+
+                        <div class="form-group input-group ">
+                            <input type="text" id="searchIbu-input" class="form-control" placeholder="ibu">
+                            <div class="input-group-append">
+                                <button class="tab_item btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div id="content-container">
+                    <form id="searchAbv-form" class="mx-auto form-inline">
+
+                        <div class="form-group input-group ">
+                            <input type="text" id="searchAbv-input" class="form-control" placeholder="abv">
+                            <div class="input-group-append">
+                                <button class="tab_item btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+    <!-- bottom header -->
+    <nav class="navbar navbar-expand-sm bottom-header justify-content-center">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="b-container">
+                    <a href="javascript:PopUpIbuShow()">Ibu</a>
+                </div>
+                <div class="b-popup" id="popupIbu">
+                    <div class="container">
+                        <div class="b-popup-content">
+                            <a href="javascript:PopUpIbuHide()"><i class="fas fa-times"></i></a>
+                            <div id="resultsIbu"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="b-container">
+                    <a href="javascript:PopUpAbvShow()">Abv</a>
+                </div>
+                <div class="b-popup" id="popupAbv">
+                    <div class="container">
+                        <div class="b-popup-content">
+                            <a href="javascript:PopUpAbvHide()"><i class="fas fa-times"></i></a>
+                            <div id="resultsAbv"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <!-- -------- -->
+    <div class="conteiner">
+        <div id="results" class="beerSrch"></div>
+        <!-- <div id="resultsAbv"></div>
+        <div id="resultsIbu"></div> -->
+    </div>
+
+
+
+    <!-- --- -->
+    <!-- <nav class="header navbar navbar-dark ">
+        <a class="navbar-brand inline" href="#">
+            <img src="img/logo.png" class="logo d-inline-block " alt="">
+            <h3> Punk</h3>
+        </a>
+    </nav> -->
+
+    <!-- sidebar -->
+    <!-- <div class="sidebar">
+        <h1>Sidebar menu</h1> -->
+
+    <!-- serch -->
+    <!-- <div id="content-container">
+            <form id="search-form" class="mx-auto form-inline">
+
+                <div class="form-group input-group ">
+                    <input type="text" id="search-input" class="form-control" placeholder="search...">
+                    <div class="input-group-append">
+                        <button class="tab_item btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+
+    <!-- Filter -->
+    <!-- <div>
             <ul>
-                <li class="tab_item all ">
-                    <h3>all</h3>
+                <h1>Sort</h1>
+                <li>
+                    <div id="content-container">
+                        <form id="searchIbu-form" class="mx-auto form-inline">
+
+                            <div class="form-group input-group ">
+                                <input type="text" id="searchIbu-input" class="form-control" placeholder="search for ibu ...">
+                                <div class="input-group-append">
+                                    <button class="tab_item btn btn-outline-secondary" type="submit">Ibu</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </li>
-                <h1>ABV</h1>
-                <li class="tab_item weakAbv">
-                    <h3>weak</h3>
-                </li>
-                <li class="tab_item mediumAbv">
-                    <h3>medium</h3>
-                </li>
-                <li class="tab_item strongAbv">
-                    <h3>strong</h3>
-                </li>
-                <h1>IBU</h1>
-                <li class="tab_item weakIbu">
-                    <h3>weak</h3>
-                </li>
-                <li class="tab_item mediumIbu">
-                    <h3>medium</h3>
-                </li>
-                <li class="tab_item bitterIbu">
-                    <h3>bitter</h3>
+                <li>
+                    <div id="content-container">
+                        <form id="searchAbv-form" class="mx-auto form-inline">
+
+                            <div class="form-group input-group ">
+                                <input type="text" id="searchAbv-input" class="form-control" placeholder="search for abv...">
+                                <div class="input-group-append">
+                                    <button class="tab_item btn btn-outline-secondary" type="submit">Abv</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </li>
             </ul>
         </div>
+        <button class="btn btn-outline-secondary" onclick="location.href = 'index.html'">Clear</button> -->
+    <!-- <button class="btn btn-outline-secondary" type="submit"><a href="index.html">Clear</a></button> -->
+    <!-- </div> -->
 
-    </div>
-    <div class="container">
+    <!-- output -->
+    <!-- <div class="container"> -->
+    <!-- <div id="results" class="beerSrch"></div> -->
+    <!-- <div id="resultsIbu" class="beerI"></div>
+        <div id="resultsAbv" class="beerA"></div>
+        <div class='beers'></div>
+        <div class='bg'></div>
+    </div> -->
+
+    <!-- <div class="container">
         <div class="row">
-            <div id="results"></div>
+            <ul>
+                <li> -->
+    <!-- <div class="b-container">
+                        <a href="javascript:PopUpShow()">Show popup</a>
+                    </div>
+                    <div class="b-popup" id="popup1">
+                        <div class="b-popup-content">
+                            <a href="javascript:PopUpHide()">Hide popup</a>
+                            <div id="results" class="beerSrch"></div>
+                        </div>
+                    </div> -->
+    <!-- </li>
+                <li> -->
+    <!-- <div class="b-container">
+                        <a href="javascript:PopUp2Show()">Show popup</a>
+                    </div>
+                    <div class="b-popup" id="popup2">
+                        <div class="b-popup-content">
+                            <a href="javascript:PopUp2Hide()">Hide popup</a>
+                            <div id="resultsIbu"></div>
+                        </div>
+                    </div> -->
+    <!-- </li>
+            </ul>
         </div>
-    </div>
-    <hr>
-    <div class='container'>
-        <div class="row">
-            <div class='beers_grid '>
-
-
-            </div>
-        </div>
-    </div>
-    <div class='bg'></div>
-
-    </div>
-
+    </div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-    <script src="search.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/filterIbu.js"></script>
+    <script src="scripts/filterAbv.js"></script>
+    <script src="scripts/pop-up.js"></script>
+
 </body>
 
 </html>
